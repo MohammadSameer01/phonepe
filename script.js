@@ -1,0 +1,104 @@
+document.addEventListener("DOMContentLoaded", () => {
+  loadMoneytransfer();
+  loadRechargeAndBills();
+});
+//
+function loadMoneytransfer() {
+  const moneyTransfers = document.querySelector(".money-transfers");
+  if (moneyTransfers) {
+    const sectionTitle = createElement(
+      "h3",
+      "transfer-section-title",
+      "Money Transfers"
+    );
+    //
+    const transferItemsArray = [
+      "To Mobile Number",
+      "To Bank & Self A/c",
+      "Refer & Get Upto ₹200",
+      "Check Balance",
+    ];
+    const transferItemIconsArray = [
+      `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm90.7 96.7c9.7-2.6 19.9 2.3 23.7 11.6l20 48c3.4 8.2 1 17.6-5.8 23.2L168 231.7c16.6 35.2 45.1 63.7 80.3 80.3l20.2-24.7c5.6-6.8 15-9.2 23.2-5.8l48 20c9.3 3.9 14.2 14 11.6 23.7l-12 44C336.9 378 329 384 320 384C196.3 384 96 283.7 96 160c0-9 6-16.9 14.7-19.3l44-12z"/></svg>
+      `,
+      `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>`,
+      `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75l-8.7 0-32 0-96 0c-35.3 0-64 28.7-64 64l0 96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-128 8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-147.6c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4L480 32zm-64 76.7L416 240l0 131.3C357.2 317.8 280.5 288 200.7 288l-8.7 0 0-96 8.7 0c79.8 0 156.5-29.8 215.3-83.3z"/></svg>
+      `,
+      `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32l64 0 16 0 176 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-56.2 0c9.6 14.4 16.7 30.6 20.7 48l35.6 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-35.6 0c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256l80 0c32.8 0 61-19.7 73.3-48L32 208c-17.7 0-32-14.3-32-32s14.3-32 32-32l153.3 0C173 115.7 144.8 96 112 96L96 96 32 96C14.3 96 0 81.7 0 64z"/></svg>
+      `,
+    ];
+    const transferOptions = createElement("div", "transfer-options");
+    transferItemsArray.forEach((item, index) => {
+      const transferItem = createElement("div", "transfer-item");
+      const itemIcon = createElement(
+        "div",
+        "transfer-item-icon",
+        transferItemIconsArray[index]
+      );
+      const itemTitle = createElement("div", "transfer-item-title", item);
+      transferItem.append(itemIcon, itemTitle);
+
+      transferOptions.appendChild(transferItem);
+    });
+    //
+    moneyTransfers.append(sectionTitle, transferOptions);
+  }
+}
+function loadRechargeAndBills() {
+  const rechargeAndBills = document.querySelector(".recharge-and-bills");
+  if (rechargeAndBills) {
+    const rabcontainer = createElement("div", "rab-container");
+    //
+    const rabTitleContainer = createElement("div", "rab-title-container");
+    const sectionTitle = createElement(
+      "h3",
+      "rab-section-title",
+      "Recharge & Bills"
+    );
+    const viewAllBtn = createElement("button", "rab-viewAll", "View All");
+    rabTitleContainer.append(sectionTitle, viewAllBtn);
+    //
+    const rabFlexBox = createElement("div", "rab-options");
+    const rabItemsArray = [
+      "Recharge",
+      "Tution Fees",
+      "Electricity",
+      "Loan EMI",
+    ];
+    rabItemsArray.forEach((item) => {
+      const rabItem = createElement("div", "rab-item");
+      rabFlexBox.appendChild(rabItem);
+    });
+    //
+    rabcontainer.append(rabTitleContainer, rabFlexBox);
+    rechargeAndBills.appendChild(rabcontainer);
+  }
+}
+//
+function createElement(elementName, className, content) {
+  const element = document.createElement(`${elementName}`);
+  if (content) {
+    element.innerHTML = content;
+  }
+  if (className) {
+    element.setAttribute("class", className);
+  }
+  return element;
+}
+
+document.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const threshold = window.innerHeight * 0.1; // 110vh
+
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+  if (scrollY >= threshold) {
+    metaThemeColor.setAttribute("content", "#ffffff"); // White
+  } else {
+    metaThemeColor.setAttribute("content", "#28353b"); // Or original color
+  }
+});

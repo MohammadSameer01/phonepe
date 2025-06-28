@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* 
+ */
+:root {
+  --font-family-poppins: "Poppins", sans-serif;
+  /*  */
+  --color-Meteorite: #361968;
+  --color-white: #ffffff;
+  --color-Robins-egg-blue: #07c3de;
+  /*  */
+  --color-main-banner: #28353b;
+  --color-ui-loading: #eeeeee;
+  /*  */
+}
+/* 
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-poppins);
+}
+/* 
+ */
+svg {
+  fill: var(--color-white);
+  height: 24px;
+}
+img {
+  width: 30px;
+}
+h3 {
+  font-size: 0.9em;
+}
+/*
+ */
+.banner-section {
+  height: 300px;
+  background: url(assets/main_banner.jpg);
+  background-color: var(--color-main-banner);
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  position: sticky;
+  top: 0;
+  z-index: -1;
+}
+header {
+  height: 60px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: header-animation ease forwards;
+  animation-timeline: view();
+  animation-range-start: 110vh;
+  animation-range-end: 130vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+@keyframes header-animation {
+  100% {
+    background: var(--color-white);
+    box-shadow: 0 0 12px -6px;
+  }
+}
+.user-info {
+  height: 36px;
+  background: var(--color-ui-loading);
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.user-info img {
+  height: 100%;
+  width: 100%;
+}
+.help-center {
+  height: 36px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  padding: 4px;
+  display: grid;
+  place-content: center;
+}
+.help-center svg {
+  animation: help-center-animation ease forwards;
+  animation-timeline: view();
+  animation-range-start: 110vh;
+  animation-range-end: 130vh;
+}
+@keyframes help-center-animation {
+  100% {
+    fill: black;
+  }
+}
+/* 
+ */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+  background: var(--color-white);
+}
+/*  */
+.money-transfers {
+  padding: 0 12px;
+}
+.transfer-section-title {
+  margin: 12px 0;
+}
+.transfer-options {
+  display: flex;
+  gap: 12px;
+}
+.transfer-item {
+  width: 25%;
+  font-size: 0.7em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px;
+}
+.transfer-item-icon {
+  width: 48px;
+  aspect-ratio: 1;
+  background: var(--color-Meteorite);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.transfer-item:nth-child(1) svg {
+  position: absolute;
+  bottom: -4px;
+  height: 75%;
+}
+.transfer-item:nth-child(2) svg {
+  position: absolute;
+  bottom: -2px;
+  height: 70%;
+}
+.transfer-item:nth-child(3) svg {
+  position: absolute;
+  height: 60%;
+  transform: rotate(-25deg);
+  bottom: 4px;
+  left: 2px;
+}
+.transfer-item:nth-child(4) svg {
+  position: absolute;
+  height: 50%;
+}
+.transfer-item-title {
+  margin-top: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*  */
+.recharge-and-bills {
+  background: rgb(236, 236, 236);
+  padding: 12px;
+  border-radius: 12px;
+  height: 140px;
+}
+.rab-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+.rab-title-container button {
+  border: 0;
+  padding: 0 12px;
+  color: var(--color-Meteorite);
+  font-weight: 600;
+  font-size: 0.75em;
+}
+.rab-options {
+  display: flex;
+  gap: 12px;
+
+  /* Delete */
+  margin-top: 12px;
+}
+.rab-item {
+  width: 25%;
+  aspect-ratio: 1;
+  font-size: 0.7em;
+}
+
+/*  */
+/* Delete  */
+span {
+  padding: 0 18px;
+}
