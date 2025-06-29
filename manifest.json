@@ -1,0 +1,23 @@
+{
+  "name": "PhonePe Clone",
+  "short_name": "PhonePe",
+  "description": "A PWA clone of PhonePe offering recharge and payment services.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#28353b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/brandAssets/PhonePe_idIvolSN8d_0.jpeg",
+      "sizes": "400x400",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/brandAssets/PhonePe_idwlva8idc_5.png",
+      "sizes": "800x800",
+      "type": "image/png"
+    }
+  ]
+}
