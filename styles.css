@@ -171,11 +171,11 @@ header {
   background: rgb(236, 236, 236);
   padding: 12px;
   border-radius: 12px;
-  height: 140px;
 }
 .rab-title-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 18px;
 }
 .rab-title-container button {
   border: 0;
@@ -187,18 +187,34 @@ header {
 .rab-options {
   display: flex;
   gap: 12px;
-
-  /* Delete */
-  margin-top: 12px;
 }
 .rab-item {
   width: 25%;
   aspect-ratio: 1;
   font-size: 0.7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
+.rab-item-icon {
+  width: 48px;
+  aspect-ratio: 1;
+  background: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 6px;
+}
+.rab-item-icon svg {
+  fill: var(--color-Meteorite);
+}
 /*  */
-/* Delete  */
-span {
-  padding: 0 18px;
+.screenshots-container {
+  display: flex;
+  flex-direction: column;
+}
+.screenshots-container img {
+  width: 100%;
 }
